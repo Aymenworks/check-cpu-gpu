@@ -9,22 +9,19 @@
 import UIKit
 
 class TextCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var textLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.shadowColor = UIColor.red.cgColor
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset =  .init(width: 4, height: 4)
-        clipsToBounds = false
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        for subview in contentView.subviews {
+            if let button =  subview as? UIButton {
+                button.layer.shadowColor = button.backgroundColor?.cgColor
+                button.layer.shadowRadius = 4
+                button.layer.shadowOpacity = 0.5
+                button.layer.shadowOffset =  .init(width: 4, height: 4)
+                button.clipsToBounds = false
+                button.layer.shadowPath = UIBezierPath(rect: button.bounds).cgPath
+            }
+        }
     }
 }

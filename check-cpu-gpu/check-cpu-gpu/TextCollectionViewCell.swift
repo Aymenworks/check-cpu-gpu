@@ -21,4 +21,10 @@ class TextCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset =  .init(width: 4, height: 4)
         clipsToBounds = false
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+    }
 }

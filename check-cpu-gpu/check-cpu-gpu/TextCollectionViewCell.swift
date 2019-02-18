@@ -23,5 +23,7 @@ class TextCollectionViewCell: UICollectionViewCell {
                 button.layer.shadowPath = UIBezierPath(rect: button.bounds).cgPath
             }
         }
+        
+        self.contentView.layer.shouldRasterize = true
     }
 }
